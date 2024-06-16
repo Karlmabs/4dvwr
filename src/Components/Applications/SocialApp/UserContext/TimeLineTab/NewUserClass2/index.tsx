@@ -2,7 +2,7 @@ import { Href, ImagePath, MoreCommnets } from "@/Constant";
 import { Card, CardBody, Col } from "reactstrap";
 import CommentsBox from "../NewUserClass/CommentsBox";
 import IssaBellMessage from "../NewUserClass/IssaBellMessage";
-import JasonBorneMessage from "../NewUserClass/JasonBorneMessage";
+import SingleComment from "../NewUserClass/SingleComment";
 import LikeContent from "../NewUserClass/LikeContent";
 import NewUsersSocial from "../NewUserClass/NewUsersSocial";
 
@@ -26,7 +26,7 @@ const NewUserClass2 = () => {
             </p>
             <LikeContent />
             <div className="social-chat">
-              <JasonBorneMessage />
+              <SingleComment />
               <IssaBellMessage />
               <div className="text-center">
                 <a href={Href}>{MoreCommnets}</a>

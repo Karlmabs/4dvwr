@@ -50,7 +50,6 @@ export default function RootLayout({
       <div className={`page-wrapper horizontal-wrapper`} id="pageWrapper">
         <Header />
         <div className="page-body-wrapper">
-          {/*<SideBar />*/}
           <div className="page-body">{children}</div>
           <Footer />
         </div>

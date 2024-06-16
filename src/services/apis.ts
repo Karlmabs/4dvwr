@@ -154,7 +154,7 @@ export const deleteComment = async (commentId: string) => {
 
 export const getProfile = async (userId: string) => {
   try {
-    const response = await axios.get(`${API_URL}/ProfileApi/${userId}`);
+    const response = await axios.get(`${API_URL}/ProfileApi/user/${userId}`);
     return response.data;
   } catch (error) {
     throw error;

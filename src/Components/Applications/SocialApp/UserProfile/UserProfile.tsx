@@ -5,12 +5,12 @@ import { Card, Col, Row } from "reactstrap";
 import NavBarMain from "./NavBarMain";
 import UserProfileIcon from "./UserProfileIcon";
 
-const UserProfile: React.FC<SocialAppCallBackType> = ({ callback }) => {
+const UserProfile: React.FC<SocialAppCallBackType> = ({ callback, name }) => {
   return (
     <Row>
       <Col sm="12" className="box-col-12">
         <Card className="hovercard text-center">
-          <div className="cardheader socialheader" />
+          {/*<div className="cardheader socialheader" />*/}
           <div className="user-image">
             <div className="avatar">
               <img alt="user" src={`${ImagePath}/user/1.jpg`} />
@@ -23,7 +23,7 @@ const UserProfile: React.FC<SocialAppCallBackType> = ({ callback }) => {
             <UserProfileIcon />
           </div>
           <div className="info market-tabs p-0">
-            <NavBarMain callback={callback} />
+            <NavBarMain callback={callback} name={name} />
           </div>
         </Card>
       </Col>

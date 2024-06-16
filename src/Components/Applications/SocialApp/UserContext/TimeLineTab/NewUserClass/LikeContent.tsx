@@ -11,7 +11,7 @@ const LikeContent = ({ commentsNumber }: { commentsNumber: number }) => {
         </span>
       </span>*/}
       <span className="pull-right comment-number">
-        <span>10 </span>
+        <span>{commentsNumber} </span>
         <span>
           <i className="fa fa-comments-o ms-1" />
         </span>

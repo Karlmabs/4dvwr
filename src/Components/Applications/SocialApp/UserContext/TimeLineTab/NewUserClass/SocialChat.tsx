@@ -1,14 +1,13 @@
-import { Href, ImagePath, MoreCommnets } from "@/Constant";
-import Link from "next/link";
-import IssaBellMessage from "./IssaBellMessage";
-import JasonBorneMessage from "./JasonBorneMessage";
-import OliviaJonMessage from "./OliviaJonMessage";
+import SingleComment from "./SingleComment";
+import { Comment } from "@/Types/PostType";
 
-const SocialChat = () => {
+const SocialChat = ({ comments }: { comments: Comment[] }) => {
   return (
     <div className="social-chat">
-      <JasonBorneMessage />
-      <div className="other-msg">
+      {comments.map((comment) => (
+        <SingleComment {...comment} />
+      ))}
+      {/*<div className="other-msg">
         <div className="d-flex">
           <img
             className="img-50 img-fluid m-r-20 rounded-circle"
@@ -28,12 +27,12 @@ const SocialChat = () => {
             </p>
           </div>
         </div>
-      </div>
-      <OliviaJonMessage />
+      </div>*/}
+      {/* <OliviaJonMessage />
       <IssaBellMessage />
       <div className="text-center">
         <Link href={Href}>{MoreCommnets}</Link>
-      </div>
+      </div>*/}
     </div>
   );
 };

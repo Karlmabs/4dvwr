@@ -20,8 +20,8 @@ const PostComponent = ({ post }: PostComponentProp) => {
           />
           <div className="timeline-content">
             <p>{post.content}</p>
-            <LikeContent />
-            <SocialChat />
+            <LikeContent commentsNumber={post?.comments.length} />
+            <SocialChat comments={post.comments} />
             <CommentsBox />
           </div>
         </CardBody>

@@ -4,8 +4,11 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { LogOut } from "react-feather";
+import { useAppSelector } from "@/Redux/Hooks";
 
 export const Profile = () => {
+  const { user } = useAppSelector((state) => state.auth);
+
   const router = useRouter();
   const LogOutUser = () => {
     Cookies.remove("mofi_token");
@@ -21,15 +24,18 @@ export const Profile = () => {
           alt=""
         />
         <div className="flex-grow-1">
-          <span>Alen Miller</span>
+          <span>{user?.username}</span>
           <p className="mb-0 font-outfit">
-            UI Designer<i className="fa fa-angle-down"></i>
+            User <i className="fa fa-angle-down"></i>
           </p>
         </div>
       </div>
       <ul className="profile-dropdown onhover-show-div">
         {UserProfileData.map((item, index) => (
-          <li key={index}>
+          <li
+            key={index}
+            onClick={() => router.push(`/en/profile/${user?.id}`)}
+          >
             <Link href={item.link}>
               {item.icon}
               <span>{item.title} </span>

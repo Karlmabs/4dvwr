@@ -1,6 +1,7 @@
 import { ImagePath } from "@/Constant";
+import { Comment } from "@/Types/PostType";
 
-const JasonBorneMessage = () => {
+const SingleComment = ({ authorName, content, creationDate }: Comment) => {
   return (
     <div className="your-msg">
       <div className="d-flex">
@@ -11,20 +12,16 @@ const JasonBorneMessage = () => {
         />
         <div className="flex-grow-1">
           <span className="f-w-600">
-            Jason Borne&nbsp;
+            {authorName}
             <span>
               1 Year Ago <i className="fa fa-reply font-primary" />
             </span>
           </span>
-          <p>
-            {" "}
-            we are working for the dance and sing songs. this car is very
-            awesome for the youngster. please vote this car and like our post
-          </p>
+          <p>{content}</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default JasonBorneMessage;
+export default SingleComment;

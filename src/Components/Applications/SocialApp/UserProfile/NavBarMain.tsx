@@ -4,7 +4,7 @@ import { SocialAppCallBackType } from "@/Types/SocialAppType";
 import { SocialNavData } from "@/Data/Application/SocialApp";
 import { useAppSelector } from "@/Redux/Hooks";
 
-const NavBarMain: React.FC<SocialAppCallBackType> = ({ callback }) => {
+const NavBarMain: React.FC<SocialAppCallBackType> = ({ callback, name }) => {
   const [activeTab, setActiveTab] = useState(1);
   const { i18LangStatus } = useAppSelector((store) => store.langSlice);
   const tabHandler = (id: number) => {
@@ -20,7 +20,7 @@ const NavBarMain: React.FC<SocialAppCallBackType> = ({ callback }) => {
             <NavItem>
               <div className="user-designation" />
               <div className="title">
-                <a href={`/${i18LangStatus}/app/social_app`}>ElANA</a>
+                <a href={`/${i18LangStatus}/app/social_app`}>{name}</a>
               </div>
               <div className="desc mt-2">general manager</div>
             </NavItem>

@@ -1,5 +1,6 @@
 export interface SocialAppCallBackType {
   callback: (tab: number) => void;
+  name: string;
 }
 
 export interface SocialAppTabContentProp {
