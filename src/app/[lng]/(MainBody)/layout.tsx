@@ -1,6 +1,5 @@
 "use client";
 import Footer from "@/Layout/Footer/Footer";
-import { SideBar } from "@/Layout/Sidebar/Sidebar";
 import ThemeCustomizer from "@/Layout/ThemeCustomizer";
 import { useAppDispatch, useAppSelector } from "@/Redux/Hooks";
 import Store from "@/Redux/Store";
@@ -49,10 +48,10 @@ export default function RootLayout({
 
   return (
     <Provider store={Store}>
-      <div className={`page-wrapper ${layout}`} id="pageWrapper">
+      <div className={`page-wrapper horizontal-wrapper`} id="pageWrapper">
         <Header />
         <div className="page-body-wrapper">
-          <SideBar />
+          {/*<SideBar />*/}
           <div className="page-body">{children}</div>
           <Footer />
         </div>

@@ -1,5 +1,5 @@
 import { Href } from "@/Constant";
-import { FileText, Mail, Settings, Users } from "react-feather";
+import { Users } from "react-feather";
 
 export const NotificationData = [
   {
@@ -76,22 +76,7 @@ export const cartDetailsList = [
 export const UserProfileData = [
   {
     icon: <Users />,
-    title: "Account",
-    link: Href,
-  },
-  {
-    icon: <Mail />,
-    title: "Inbox",
-    link: Href,
-  },
-  {
-    icon: <FileText />,
-    title: "Taskboard",
-    link: Href,
-  },
-  {
-    icon: <Settings />,
-    title: "Settings",
+    title: "Profile",
     link: Href,
   },
 ];

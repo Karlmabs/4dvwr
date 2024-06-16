@@ -1,6 +1,5 @@
 import { Row } from "reactstrap";
 import { MobileView } from "./MobileView";
-import { BreadCrumbs } from "./BreadCrumbs";
 import { PageHeader } from "./PageHeader";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/Redux/Hooks";
@@ -20,7 +19,7 @@ export const Header = () => {
       id="page-header"
     >
       <MobileView />
-      <BreadCrumbs />
+      {/*<BreadCrumbs />*/}
       <PageHeader />
     </Row>
   );
