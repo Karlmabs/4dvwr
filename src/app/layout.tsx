@@ -1,6 +1,7 @@
 import NoSsr from "@/utils/NoSsr";
 import "../../src/index.scss";
 import MainProvider from "./MainProvider";
+import { ToastContainer } from "react-toastify";
 
 export default function RootLayout({
   children,
@@ -37,6 +38,7 @@ export default function RootLayout({
         <NoSsr>
           <MainProvider>{children}</MainProvider>
         </NoSsr>
+        <ToastContainer />
       </body>
     </html>
   );

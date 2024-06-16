@@ -20,6 +20,10 @@ export interface SignupSubmitProp {
   lastname: string;
   email: string;
   password: string;
+  username: string;
+  role: string[];
+  phoneNumber: string;
+  birthDate: Date;
 }
 
 interface FormValueInterFace {

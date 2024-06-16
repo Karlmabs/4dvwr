@@ -1,9 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
 import HeaderBookmarkSlice from "./Reducers/HeaderBookmarkSlice";
 import LayoutSlice from "./Reducers/LayoutSlice";
 import ThemeCustomizerSlice from "./Reducers/ThemeCustomizerSlice";
 import LanguageSlice from "./Reducers/LanguageSlice";
 import AuthSlice from "@/Redux/Reducers/AuthSlice";
+import storage from "redux-persist/lib/storage";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, AuthSlice);
 
 const Store = configureStore({
   reducer: {
@@ -11,9 +20,11 @@ const Store = configureStore({
     headerBookMark: HeaderBookmarkSlice,
     themeCustomizer: ThemeCustomizerSlice,
     langSlice: LanguageSlice,
-    auth: AuthSlice
+    auth: persistedReducer,
   },
 });
+
+export const persistor = persistStore(Store);
 
 export default Store;
 

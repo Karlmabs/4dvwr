@@ -16,13 +16,15 @@ type RegisterRequest = {
   email: string;
   firstName: string;
   lastName: string;
-  birthDate: string;
+  birthDate: Date;
+  registrationDate: Date;
+  phoneNumber: string;
+  role: string[];
 };
 
 export const login = async (request: LoginRequest) => {
   try {
-    const response = await axios.post(`${API_URL}/userApi/login`, request);
-    return response.data;
+    return await axios.post(`${API_URL}/userApi/login`, request);
   } catch (error) {
     throw error;
   }
@@ -30,8 +32,7 @@ export const login = async (request: LoginRequest) => {
 
 export const register = async (request: RegisterRequest) => {
   try {
-    const response = await axios.post(`${API_URL}/userApi/signup`, request);
-    return response.data;
+    return await axios.post(`${API_URL}/userApi/signup`, request);
   } catch (error) {
     throw error;
   }

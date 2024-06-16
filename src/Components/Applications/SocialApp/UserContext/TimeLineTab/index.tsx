@@ -3,15 +3,21 @@ import PostComponent from "./NewUserClass";
 import { useEffect, useState } from "react";
 import { getAllPosts } from "@/services/apis";
 import { Post } from "@/Types/PostType";
+import Loading from "@/app/loading";
 
 const TimelineTab = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getAllPosts().then(setPosts);
+    getAllPosts()
+      .then(setPosts)
+      .finally(() => setLoading(false));
   }, []);
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <Row>
       <Col md="5" xl="3" lg="12" className="box-col-4 xl-40">
         <div className="default-according style-1 faq-accordion">
