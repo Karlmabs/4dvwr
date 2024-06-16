@@ -61,3 +61,27 @@ export interface CountdownDataProp {
   seconds: number;
   completed: boolean;
 }
+
+interface Authority {
+  authority: string;
+}
+
+export interface User {
+  id: number;
+  email: string;
+  password: string;
+  authorities: Authority[];
+  enabled: boolean;
+  username: string;
+  storageQuota: string;
+  storageUsed: string;
+  accountNonExpired: boolean;
+  accountNonLocked: boolean;
+  credentialsNonExpired: boolean;
+}
+
+export interface AuthState {
+  isLoggedIn: boolean;
+  user: User | null;
+  error: string | null;
+}
