@@ -19,6 +19,7 @@ export interface MyProfileClassCollapseProp {
 
 export interface PeopleYouMayKnowProp {
   heading: string;
+  ids?: number[];
 }
 
 export interface MyActivityProp {

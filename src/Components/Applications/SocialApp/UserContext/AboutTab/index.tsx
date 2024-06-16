@@ -1,11 +1,9 @@
-import { PeopleKnow, ViewProfile } from "@/Constant";
 import { Col, Row } from "reactstrap";
-import EducationAndEmployment from "./EducationAndEmployment";
 import HobbiesAndInterests from "./HobbiesAndInterests";
 import PeopleYouMayKnow from "./PeopleYouMayKnow";
-import ActivityLog from "./ActivityLog";
+import { Profile } from "@/Types/ProfileType";
 
-const AboutTab = () => {
+const AboutTab = ({ profile }: { profile: Profile }) => {
   return (
     <Row>
       <Col xl="3" lg="12" md="5" className="xl-40 box-col-4e">
@@ -15,11 +13,11 @@ const AboutTab = () => {
       </Col>
       <Col xl="6" lg="12" md="7" className="xl-60 box-col-8">
         <Row>
-          <PeopleYouMayKnow heading={PeopleKnow} />
-          <HobbiesAndInterests />
-          <EducationAndEmployment />
+          <PeopleYouMayKnow heading="Connections" ids={profile?.connections} />
+          <HobbiesAndInterests profile={profile} />
+          {/*<EducationAndEmployment />
           <PeopleYouMayKnow heading={ViewProfile} />
-          <ActivityLog />
+          <ActivityLog />*/}
         </Row>
       </Col>
       <Col xl="3" className="xl-100 box-col-12">

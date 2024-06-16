@@ -22,7 +22,7 @@ const profile = ({ params }: { params: { id: string } }) => {
     <Container fluid>
       <div className="user-profile social-app-profile">
         <UserProfile callback={callback} name={profile?.username!} />
-        <AboutTab />
+        <AboutTab profile={profile!} />
       </div>
     </Container>
   );

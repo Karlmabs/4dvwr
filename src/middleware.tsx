@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/auth/login", request.url));
   }
   if (path.split("/")[1] === "auth" && request.cookies.has("token")) {
-    return NextResponse.redirect(new URL(`/`, request.url));
+    return NextResponse.redirect(new URL(`/en/home`, request.url));
   }
   if (path.split("/")[2] === "support_ticket" && request.cookies.has("token")) {
     return NextResponse.redirect(

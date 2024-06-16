@@ -1,0 +1,117 @@
+version: '3.8'
+services:
+
+  discovery-server:
+    image: karlmabs/discovery-server
+    networks:
+      - 4ams-network
+    ports:
+      - "8761:8761"
+
+  user-db:
+    image: postgres
+    networks:
+      - 4ams-network
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: users
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - user-data:/var/lib/postgresql/data
+
+  user-service:
+    image: karlmabs/user-service
+    networks:
+      - 4ams-network
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user-db
+      - discovery-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://user-db/users
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+
+  post-db:
+    image: postgres
+    networks:
+      - 4ams-network
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: posts
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - post-data:/var/lib/postgresql/data
+
+  post-service:
+    image: karlmabs/post-service
+    networks:
+      - 4ams-network
+    ports:
+      - "8082:8082"
+    depends_on:
+      - post-db
+      - discovery-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://post-db/posts
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+
+  profile-db:
+    image: postgres
+    networks:
+      - 4ams-network
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: profiles
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - profile-data:/var/lib/postgresql/data
+
+  profile-service:
+    image: karlmabs/profile-service
+    ports:
+      - "8081:8081"
+    networks:
+      - 4ams-network
+    depends_on:
+      - profile-db
+      - discovery-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://profile-db/profiles
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+
+  bff-service:
+    image: karlmabs/bff-service
+    ports:
+      - "8084:8084"
+    networks:
+      - 4ams-network
+    depends_on:
+      - user-service
+      - post-service
+      - profile-service
+      - discovery-server
+
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    networks:
+      - 4ams-network
+
+networks:
+  4ams-network:
+
+volumes:
+  user-data:
+  post-data:
+  profile-data:

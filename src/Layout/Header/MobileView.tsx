@@ -12,12 +12,12 @@ export const MobileView = () => {
         <Link href={`/${i18LangStatus}/sample_page`}>
           <img
             className="img-fluid for-light"
-            src={`${ImagePath}/logo/logo.png`}
+            src={`${ImagePath}/logo/icons8-linkedin-48.png`}
             alt=""
           />
           <img
             className="img-fluid for-dark"
-            src={`${ImagePath}/logo/logo_light.png`}
+            src={`${ImagePath}/logo/icons8-linkedin-48.png`}
             alt=""
           />
         </Link>

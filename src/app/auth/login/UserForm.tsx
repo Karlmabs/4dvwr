@@ -13,8 +13,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
-import imageOne from "../../../../public/assets/images/logo/logo.png";
-import imageTwo from "../../../../public/assets/images/logo/logo_dark.png";
+import imageOne from "../../../../public/assets/images/logo/icons8-linkedin-48.png";
+import imageTwo from "../../../../public/assets/images/logo/icons8-linkedin-48.png";
 import { login } from "@/services/apis";
 import { loginFailed, loginSuccess } from "@/Redux/Reducers/AuthSlice";
 

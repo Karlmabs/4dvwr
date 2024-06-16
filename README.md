@@ -1,49 +1,135 @@
-------------------------
-    Version List
-------------------------
+### Technical Documentation for LinkedIn Clone Project
 
-    Node   :- 20.1.0
-    React  :- 18.2.0
-    Next   :- 14.0.4
+#### Project Overview
 
-------------------------
+This project involves developing the frontend for a LinkedIn clone using Next.js. The application features user
+authentication (login and registration), a homepage displaying posts with comments, and user profile pages with detailed
+information such as skills, education, school, and connections. Additionally, a Docker Compose setup is provided to
+launch the application seamlessly with the backend services.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped
-with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#### Key Components
 
-## Getting Started
+1. **Home Page**
+   - **Features**: Displays a list of all saved posts with the author's name, post title, and a snippet of the content.
+     Users can navigate to the detailed post page and the author's profile from here.
 
-First, run the development server:
+2. **Post Page**
+   - **Features**: Shows the details of a single post, including the full content, author details, and comments. Users
+     can navigate to the author's profile.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+3. **New Post Page**
+   - **Features**: Allows users to create a new post.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. **User Profile Page**
+   - **Features**: Displays user information, including education, skills, experience, and connections. Users can edit
+     profile details.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### State Management
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and
-load Inter, a custom Google Font.
+- **Technologies Used**: Redux for state management, React Router for navigation.
+- **Description**: Efficiently manages application state, ensuring smooth navigation and data handling across different
+  components.
 
-## Learn More
+#### Routing
 
-To learn more about Next.js, take a look at the following resources:
+- **Technology Used**: React Router.
+- **Description**: Enables navigation between different components/pages. Supports bookmarking links to specific posts
+  or user profile pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### API Integration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions
-are welcome!
+- **Technology Used**: Axios for making HTTP requests to the backend services.
+- **Features**: Implements CRUD operations for users, posts, profiles, and comments with proper error handling and user
+  feedback.
 
-## Deploy on Vercel
+#### UI/UX Design
 
-The easiest way to deploy your Next.js app is to use
-the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
+- **Technologies Used**: Tailwind CSS, Ant Design.
+- **Description**: Ensures the application is user-friendly and easy to navigate. Employs modern design principles and
+  modular CSS to enhance the user experience.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Error Handling
+
+- **Description**: Provides user-friendly error messages and input validations to improve the overall user experience.
+
+#### Docker Integration
+
+- **Files Provided**: Dockerfile and Docker Compose file.
+- **Description**: Dockerizes the frontend application and integrates it with the backend setup. Enables easy setup and
+  deployment with a single command.
+
+### Project Setup Instructions
+
+#### Prerequisites
+
+- Node.js
+- Docker
+
+#### Frontend Setup
+
+1. **Clone the Repository**:
+   ```sh
+   git clone https://github.com/yourusername/linkedin-clone-frontend.git
+   cd linkedin-clone-frontend
+   ```
+
+2. **Install Dependencies**:
+   ```sh
+   npm install
+   ```
+
+3. **Run the Application**:
+   ```sh
+   npm run dev
+   ```
+
+#### Docker Setup
+
+1. **Ensure Docker is installed and running**.
+2. **Run the Docker Compose setup**:
+   ```sh
+   docker-compose up --build
+   ```
+
+### Project Structure
+
+#### Frontend
+
+- **Pages**: Contains the main pages of the application (Home, Post, New Post, User Profile).
+- **Components**: Reusable UI components (Header, Footer, PostCard, CommentSection).
+- **Redux**: State management setup (actions, reducers, store configuration).
+- **Styles**: Tailwind CSS and additional CSS files for styling.
+- **Services**: API service files using Axios for making HTTP requests.
+
+#### Backend
+
+- **Microservices**: Backend services designed using a microservice architecture.
+- **API**: Endpoints for user authentication, posts, comments, and profile management.
+
+### Integration Points with Backend
+
+- **Authentication**: Endpoints for login and registration.
+- **Posts**: CRUD operations for posts and comments.
+- **Profiles**: CRUD operations for user profiles and related details.
+
+### Challenges and Solutions
+
+#### Challenge 1: State Management Complexity
+
+- **Solution**: Utilized Redux to manage complex state across the application, ensuring efficient data flow and state
+  updates.
+
+#### Challenge 2: API Integration
+
+- **Solution**: Used Axios for robust API integration, handling asynchronous operations, and providing comprehensive
+  error handling.
+
+#### Challenge 3: Docker Integration
+
+- **Solution**: Created a Dockerfile and Docker Compose setup to streamline the development and deployment process.
+
+### Conclusion
+
+This project demonstrates the integration of modern web development practices using Next.js, Redux, React Router, and
+Docker. It provides a comprehensive solution for building a LinkedIn clone with a focus on user experience, state
+management, and seamless backend integration.

@@ -12,10 +12,10 @@ export const HeaderLogo = () => {
   return (
     <Col className="header-logo-wrapper p-0">
       <div className="logo-wrapper">
-        <Link href={`/${i18LangStatus}/sample_page`}>
+        <Link href={`/${i18LangStatus}/home`}>
           <img
             className="img-fluid"
-            src={`${ImagePath}/logo/logo.png`}
+            src={`${ImagePath}/logo/icons8-linkedin-48.png`}
             alt=""
           />
         </Link>

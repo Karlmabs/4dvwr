@@ -152,9 +152,18 @@ export const deleteComment = async (commentId: string) => {
   }
 };
 
-export const getProfile = async (userId: string) => {
+export const getProfile = async (userId: any) => {
   try {
     const response = await axios.get(`${API_URL}/ProfileApi/user/${userId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getProfileById = async (profileId: any) => {
+  try {
+    const response = await axios.get(`${API_URL}/ProfileApi/${profileId}`);
     return response.data;
   } catch (error) {
     throw error;
